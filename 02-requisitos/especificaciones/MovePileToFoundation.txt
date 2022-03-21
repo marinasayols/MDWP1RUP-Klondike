@@ -1,8 +1,72 @@
 @startuml
 title Move Pile To Foundation
 
-state MovePileToFoundation {
+	state "." as s1
+	state "." as s2
+	state "." as s3
+	state "." as s4
+	state "." as s5
+	
+	state MoveToFoundation <<sdlreceive>>
  
+  state c1 <<choice>>
+  state c2 <<choice>>
+
+	[*] --> s1
+  note on link 
+  	Player requests: 
+  	 - Move Card(s) From Origin Pile
+  end note
+  s1 --> s2 
+  note on link 
+  	System requires:
+  	 - Origin Pile
+  	 - # of Cards
+	end note
+	s2 --> c1
+	note on link
+		Player provides:
+		 - Origin Pile
+		 - # of Cards
+	end note
+	c1 --> s3 : [# of Cards > 1]
+	s3 --> [*]
+	note on link
+		System shows:
+		 - Error Only 1 Card
+		     To Foundation
+	end note
+	c1 --> MoveToFoundation
+	note on link
+		System shows:
+		 - Selected Card
+		
+		System allows:
+		 - MoveToFoundation
+	end note
+	MoveToFoundation --> c2
+	c2 --> s5
+	s5 --> [*]
+	note on link
+		System allows:
+		 - MovePileToPile
+		 - MoveFoundationToPile
+		 - MoveWasteToPile
+		 - MovePileToFoundation
+		 - MoveWasteToFoundation
+		 - MoveStockToWaste
+		 - MoveWasteToStock
+	end note
+	c2 --> s4 : [Last Card Rank in Origin Pile \nis Hidden]
+	s4 --> s5
+	note on link
+		System shows:
+		- Rank of Last Card 
+		   In Origin Pile
+	end note
+
+@enduml
+
   state c1 <<choice>>
   state c2 <<choice>>
   state c3 <<choice>>
@@ -17,8 +81,5 @@ state MovePileToFoundation {
   c3 --> [*] : [Selected Card is last in Origin Pile]
   c3 --> CARD_UNCOVERED
   CARD_UNCOVERED --> [*] : System shows last Card Rank in Origin Pile   
-}
 
 c3 --> GAME_WON : [Selected Card is Last Card \nin Tableau AND Waste]
-
-@enduml
