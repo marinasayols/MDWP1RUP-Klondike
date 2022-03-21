@@ -37,7 +37,6 @@ note on link
 	 - MovePileToPile
 	 - MoveFoundationToPile
 	 - MoveWasteToPile
-	 - MovePileToFoundation
 end note
 @enduml
 
