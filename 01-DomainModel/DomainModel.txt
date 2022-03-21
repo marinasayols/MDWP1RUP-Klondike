@@ -2,38 +2,52 @@
 hide circle
 
 enum Rank {
- A
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
- 10
+ Ace
+ Two
+ Three
+ Four
+ Five
+ Six
+ Seven
+ Eight
+ Nine
+ Ten
  Jack
  Queen
  King
+}
+
+enum Suit {
+	Heart
+	Diamond
+	Spade
+	Club
+}
+
+enum Color {
+	Black
+	Red
 }
 
 Game *--> Board
 Game *--> Player
 Game *--> Goal
 
-Deck *--> "52" Card
+Goal --> Foundation
+
+Deck o--> "52" Card
 
 Board *--> Stock
+Board *--> Waste
 Board *--> Tableau
 Board *--> "4" Foundation
 
 Tableau *--> "7" Pile
-Stock  -->  Waste
 Stock  --> "0..24" Card
-Pile ..> "0..19" Card
+Pile --> "0..19" Card
 Foundation  --> "0..13" Card
 Waste  --> "0..24" Card
-Foundation  *--> Suit
+Foundation  o--> Suit
 Card  *-->  Suit
 Card *--> Rank
 Suit "2"--> Color
