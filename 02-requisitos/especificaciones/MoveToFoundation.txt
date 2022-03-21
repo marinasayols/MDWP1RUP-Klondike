@@ -4,8 +4,8 @@ title Move Pile To Foundation
 state "." as s1
 state "." as s2
 state "." as s3
-
 state c1 <<choice>>
+state c2 <<choice>>
 
 [*] --> s1
 note on link
@@ -28,14 +28,27 @@ note on link
 	System shows:
 	 - Error Not Possible
 end note
-c1 --> [*]
+c1 --> c2
 note on link
 	System shows:
 	 - Card in Foundation
-	
+end note
+c2 --> [*]
+note on link
 	System allows: 
 	 - MovePileToFoundation
 	 - MoveWasteToFoundation
 end note
-
+ 
+c2 --> PLAYER_WON : [Goal Requirements are complete]
+PLAYER_WON --> [*]
+note on link
+	System shows:
+	 - Game won
+	
+	System allows:
+	 - StartGame
+	 - LoadGame
+	 - Logout
+end note
 @enduml
