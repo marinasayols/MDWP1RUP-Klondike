@@ -1,24 +1,67 @@
 @startuml
+
 title Move Pile To Pile
 
-state MovePileToPile {
+
+	state "." as s1
+	state "." as s2
+	state "." as s3
+	
+	state MoveToPile <<sdlreceive>>
  
   state c1 <<choice>>
-  state c2 <<choice>>
-  state c3 <<choice>>
 
-  [*] --> c1 : Player requests to move Card
+  [*] --> s1
+  note on link 
+  	Player requests: 
+  	 - Move Card From Origin Pile
+  end note
+  s1 --> s2 
+  note on link 
+  	System requires:
+  	 - Origin Pile
+  	 - # of Cards
+	end note
+	s2 --> c1
+	note on link
+		Player provides:
+		 - Origin Pile
+		 - # of Cards
+	end note
+	c1 --> s3 : [Card(s) cannot be moved]
+	s3 --> [*]
+	note on link 
+		System shows:
+		 - Error Not Possible
+	end note
+	c1 --> MoveToPile
+	note on link
+		System shows:
+		 - Selected Card(s)
+		 
+		System allows:
+		 - MoveToPile
+	end note
+	MoveToPile --> [*]
+	note on link
+		System allows:
+		 - MovePileToPile
+		 - MoveFoundationToPile
+		 - MoveWasteToPile
+		 - MovePileToFoundation
+	end note
+
+
+@enduml
+
   c1 --> CARD_SELECTED :  System shows selected Card
   CARD_SELECTED --> c2 : Player requests to place Card
   c2 --> [*] : [Destination Pile is empty and \nSelected Card Rank is NOT King]
-  c2 --> [*] : [Last Card in Destination Pile is \nSame Color than Selected Card]
+  c2 --> [*] : []
   c2 --> CARD_PLACED
   CARD_PLACED --> c3 : System shows placed Card
   c3 --> [*] : [Selected Card is last in Origin Pile \nOR New Last Card in Pile shows Value]
   c3 --> CARD_UNCOVERED
   CARD_UNCOVERED --> [*] : System shows last Card Rank in Origin Pile 
 
-  
-}
-
-@enduml
+[Destination Pile is empty and \nSelected Card Rank is NOT King\nOR\nLast Card in Destination Pile is \nSame Color than Selected Card]
