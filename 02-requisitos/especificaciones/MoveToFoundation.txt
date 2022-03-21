@@ -1,0 +1,41 @@
+@startuml
+title Move Pile To Foundation
+
+state "." as s1
+state "." as s2
+state "." as s3
+
+state c1 <<choice>>
+
+[*] --> s1
+note on link
+	Player requests
+	 - move Card to Foundation
+end note
+s1 --> s2
+note on link 
+	System requires
+	 - Foundation Suit
+end note
+s2 --> c1
+note on link
+	Player provides
+	 - Foundation Suit
+end note
+c1 --> s3 :[Card is NOT Same Suit than Foundation \nOR \nCard Rank != Last Card Rank in Foundation +1]
+s3 --> [*] 
+note on link
+	System shows:
+	 - Error Not Possible
+end note
+c1 --> [*]
+note on link
+	System shows:
+	 - Card in Foundation
+	
+	System allows: 
+	 - MovePileToFoundation
+	 - MoveWasteToFoundation
+end note
+
+@enduml
