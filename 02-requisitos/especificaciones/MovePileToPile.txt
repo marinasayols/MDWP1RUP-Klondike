@@ -2,7 +2,6 @@
 
 title Move Pile To Pile
 
-
 	state "." as s1
 	state "." as s2
 	state "." as s3
@@ -14,7 +13,7 @@ title Move Pile To Pile
   [*] --> s1
   note on link 
   	Player requests: 
-  	 - Move Card From Origin Pile
+  	 - Move Card(s) From Origin Pile
   end note
   s1 --> s2 
   note on link 
