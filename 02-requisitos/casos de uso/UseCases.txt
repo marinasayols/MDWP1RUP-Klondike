@@ -12,15 +12,15 @@ package useCases {
 	p --> (Move Waste To Pile)
 	p --> (Move Pile To Pile)
 	p --> (Move Foundation To Pile)
-	(Move Waste To Pile) ..> (Move To Pile) : <<extends>>
-	(Move Pile To Pile) ..> (Move To Pile) : <<extends>>
-	(Move Foundation To Pile) ..> (Move To Pile) : <<extends>>
+	(Move Waste To Pile) ..> (Move To Pile) : <<include>>
+	(Move Pile To Pile) ..> (Move To Pile) : <<include>>
+	(Move Foundation To Pile) ..> (Move To Pile) : <<include>>
 	
 	
 	p --> (Move Waste To Foundation)
 	p --> (Move Pile To Foundation)
-	(Move Waste To Foundation) ..> (Move To Foundation) : <<extends>>
-	(Move Pile To Foundation) ..> (Move To Foundation) : <<extends>>
+	(Move Waste To Foundation) ..> (Move To Foundation) : <<include>>
+	(Move Pile To Foundation) ..> (Move To Foundation) : <<include>>
 	
 	p --> (Load Game)
 	p --> (Save Game)
