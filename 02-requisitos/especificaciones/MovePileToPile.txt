@@ -48,6 +48,9 @@ title Move Pile To Pile
 		 - MoveFoundationToPile
 		 - MoveWasteToPile
 		 - MovePileToFoundation
+		 - MoveWasteToFoundation
+		 - MoveStockToWaste
+		 - MoveWasteToStock
 	end note
 
 
