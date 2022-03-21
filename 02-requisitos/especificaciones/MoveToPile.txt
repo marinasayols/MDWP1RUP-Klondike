@@ -1,0 +1,43 @@
+@startuml
+title Move To Pile
+
+state "." as s1
+state "." as s2
+state "." as s3
+
+state c1 <<choice>>
+
+[*] --> s1
+note on link
+	Player requests
+	 - move Card(s) to Destination Pile
+end note
+s1 --> s2
+note on link 
+	System requires
+	 - Destination Pile
+end note
+s2 --> c1
+note on link
+	Player provides
+	 - Destination Pile
+end note
+c1 --> s3 : [Destination Pile is empty and \nFirst Selected Card Rank is NOT King\nOR\nLast Card in Destination Pile is \nSame Color than First Selected Card]
+s3 --> [*] 
+note on link
+	System shows:
+	 - Error Not Possible
+end note
+c1 --> [*]
+note on link
+	System shows:
+	 - Card in Destination Pile
+	
+	System allows: 
+	 - MovePileToPile
+	 - MoveFoundationToPile
+	 - MoveWasteToPile
+	 - MovePileToFoundation
+end note
+@enduml
+
