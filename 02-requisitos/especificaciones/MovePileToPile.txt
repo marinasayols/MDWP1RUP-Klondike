@@ -5,10 +5,13 @@ title Move Pile To Pile
 	state "." as s1
 	state "." as s2
 	state "." as s3
+	state "." as s4
+	state "." as s5
 	
 	state MoveToPile <<sdlreceive>>
  
   state c1 <<choice>>
+  state c2 <<choice>>
 
   [*] --> s1
   note on link 
@@ -41,7 +44,9 @@ title Move Pile To Pile
 		System allows:
 		 - MoveToPile
 	end note
-	MoveToPile --> [*]
+	MoveToPile --> c2
+	c2 --> s5
+	s5 --> [*]
 	note on link
 		System allows:
 		 - MovePileToPile
@@ -52,18 +57,13 @@ title Move Pile To Pile
 		 - MoveStockToWaste
 		 - MoveWasteToStock
 	end note
+	c2 --> s4 : [Last Card Rank in Origin Pile \nis Hidden]
+	s4 --> s5
+	note on link
+		System shows:
+		- Rank of Last Card 
+		   In Origin Pile
+	end note
 
 
 @enduml
-
-  c1 --> CARD_SELECTED :  System shows selected Card
-  CARD_SELECTED --> c2 : Player requests to place Card
-  c2 --> [*] : [Destination Pile is empty and \nSelected Card Rank is NOT King]
-  c2 --> [*] : []
-  c2 --> CARD_PLACED
-  CARD_PLACED --> c3 : System shows placed Card
-  c3 --> [*] : [Selected Card is last in Origin Pile \nOR New Last Card in Pile shows Value]
-  c3 --> CARD_UNCOVERED
-  CARD_UNCOVERED --> [*] : System shows last Card Rank in Origin Pile 
-
-[Destination Pile is empty and \nSelected Card Rank is NOT King\nOR\nLast Card in Destination Pile is \nSame Color than Selected Card]
