@@ -35,7 +35,10 @@ PToF *-> Pile : origin
 PToF *--> Foundation : destination
 
 GameView --> GameController
-note on link : isGameWon() : boolean
+note on link 
+	isGameWon() : boolean
+	refreshLayout()
+end note
 
 GameController --> Game
 
