@@ -18,6 +18,5 @@ CARD_IN_PILE --> CARD_IN_FOUNDATION : MovePileToFoundation
 CARD_IN_PILE -up-> CARD_IN_PILE : MovePileToPile
 
 CARD_IN_FOUNDATION -up-> CARD_IN_PILE : MoveFoundationToPile
-CARD_IN_FOUNDATION --> [*]
 
 @enduml
