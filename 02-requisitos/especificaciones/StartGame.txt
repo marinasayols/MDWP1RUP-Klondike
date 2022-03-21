@@ -1,0 +1,31 @@
+@startuml
+title Start Game
+
+state "." as s1
+state "." as s2
+state "." as s3
+
+state c1 <<choice>>
+
+[*] --> s1
+note on link
+	Player requests
+	 - to Start Game
+end note
+s1 --> [*]
+note on link 
+	System shows
+	 - Cards Displayed
+	 
+	System allows
+	 - MovePileToPile
+	 - MoveFoundationToPile
+	 - MoveWasteToPile
+	 - MovePileToFoundation
+	 - MoveWasteToFoundation
+	 - MoveStockToWaste
+	 - MoveWasteToStock
+end note
+
+@enduml
+
