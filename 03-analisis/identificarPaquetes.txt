@@ -1,0 +1,53 @@
+@startuml
+
+title Identificar Clases Obvias
+
+package views {
+	class GameView
+	class FoundationView
+	class StockView
+	class WasteView
+	class TableauView
+	class PileView
+	class CardView
+}
+
+package controllers {
+	class StartGameController
+	class CloseGameController
+	class SaveGameController
+	class LoadGameController
+	
+	class MoveStockToWasteController
+	class MoveWasteToStockController
+	
+	class MoveWasteToPileController
+	class MoveWasteToFoundationController
+	
+	class MovePileToPileController
+	class MovePileToFoundationController
+	
+	class MoveFoundationToPileController
+	
+	class LoginController
+	class LogoutController
+}
+
+package models {
+	class Game
+	class Player
+	class Foundation
+	class Tableau
+	class Pile
+	class Stock
+	class Waste
+	class Deck
+	class Card
+	enum Rank
+	enum Suit
+	enum Color
+}
+
+views ..> models
+controllers ..> models
+@enduml

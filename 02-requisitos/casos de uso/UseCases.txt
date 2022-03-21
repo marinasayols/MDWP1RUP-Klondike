@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+title Use Cases
+
+package useCases {
+ 
+	actor Player as p
+	
+	p --> (Move Stock To Waste)
+	p --> (Move Waste To Stock)
+	
+	p --> (Move Waste To Pile)
+	p --> (Move Pile To Pile)
+	p --> (Move Foundation To Pile)
+	(Move Waste To Pile) ..> (Move To Pile) : <<extends>>
+	(Move Pile To Pile) ..> (Move To Pile) : <<extends>>
+	(Move Foundation To Pile) ..> (Move To Pile) : <<extends>>
+	
+	
+	p --> (Move Waste To Foundation)
+	p --> (Move Pile To Foundation)
+	(Move Waste To Foundation) ..> (Move To Foundation) : <<extends>>
+	(Move Pile To Foundation) ..> (Move To Foundation) : <<extends>>
+	
+	p --> (Load Game)
+	p --> (Save Game)
+	p --> (Close Game)
+	p --> (Start Game)
+	p --> (Logout)
+	p --> (Login)
+}
+
+@enduml

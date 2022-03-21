@@ -1,0 +1,23 @@
+@startuml
+title Card Life Cycle
+
+state c <<choice>>
+
+[*] --> c : Shuffle
+c --> CARD_IN_PILE : [First 28 Cards of Deck]
+c --> CARD_IN_STOCK
+
+CARD_IN_STOCK --> CARD_IN_WASTE : MoveStockToWaste
+CARD_IN_WASTE -up-> . : [Stock is Empty]
+. -up-> CARD_IN_STOCK : MoveWasteToStock
+
+CARD_IN_WASTE --> CARD_IN_PILE : MoveWasteToPile
+CARD_IN_WASTE --> CARD_IN_FOUNDATION : MoveWasteToFoundation
+
+CARD_IN_PILE --> CARD_IN_FOUNDATION : MovePileToFoundation
+CARD_IN_PILE -up-> CARD_IN_PILE : MovePileToPile
+
+CARD_IN_FOUNDATION -up-> CARD_IN_PILE : MoveFoundationToPile
+CARD_IN_FOUNDATION --> [*]
+
+@enduml

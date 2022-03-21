@@ -1,0 +1,24 @@
+@startuml
+title Move Pile To Foundation
+
+state MovePileToFoundation {
+ 
+  state c1 <<choice>>
+  state c2 <<choice>>
+  state c3 <<choice>>
+
+  [*] --> c1 : Player requests to move Card(s)
+  c1 --> [*] : [More than one Card Selected]
+  c1 --> CARD_SELECTED :  System shows Selected Card
+  CARD_SELECTED --> c2 : Player requests to place Card
+  c2 --> [*] : [Card is NOT Same Suit than Foundation \nAND \nCard Rank != Last Card Rank in Foundation +1]
+  c2 --> CARD_PLACED
+  CARD_PLACED --> c3 : System shows placed Card
+  c3 --> [*] : [Selected Card is last in Origin Pile]
+  c3 --> CARD_UNCOVERED
+  CARD_UNCOVERED --> [*] : System shows last Card Rank in Origin Pile   
+}
+
+c3 --> GAME_WON : [Selected Card is Last Card \nin Tableau AND Waste]
+
+@enduml

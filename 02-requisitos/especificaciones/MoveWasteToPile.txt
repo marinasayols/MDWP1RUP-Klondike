@@ -1,0 +1,18 @@
+@startuml
+title Move Waste To Pile
+
+state MoveWasteToPile {
+ 
+  state c1 <<choice>>
+  state c2 <<choice>>
+
+  [*] --> c1 : Player requests to move Card
+  c1 --> CARD_SELECTED :  System shows selected Card
+  c1 --> [*] : [Card is not the top Card]
+  CARD_SELECTED --> c2 : Player requests to place Card
+  c2 --> [*] : [Card is same Color than last in Pile]
+  c2 --> CARD_PLACED
+  CARD_PLACED --> [*] : System shows placed Card
+}
+
+@enduml

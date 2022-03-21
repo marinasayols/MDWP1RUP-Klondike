@@ -1,0 +1,8 @@
+@startuml
+title Actors
+
+package actors {
+	actor Player
+}
+
+@enduml

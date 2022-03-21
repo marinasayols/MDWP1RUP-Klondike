@@ -1,0 +1,52 @@
+@startuml
+hide circle
+
+enum Rank {
+ A
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ Jack
+ Queen
+ King
+}
+
+Game *--> Board
+Game *--> Player
+Game *--> Goal
+
+Deck *--> "52" Card
+
+Board *--> Stock
+Board *--> Tableau
+Board *--> "4" Foundation
+
+Tableau *--> "7" Pile
+Stock  -->  Waste
+Stock  --> "0..24" Card
+Pile ..> "0..19" Card
+Foundation  --> "0..13" Card
+Waste  --> "0..24" Card
+Foundation  *--> Suit
+Card  *-->  Suit
+Card *--> Rank
+Suit "2"--> Color
+
+Player --> Goal
+Player ..> Move
+
+Move --> Stack : origin
+Move --> Stack : destination
+Stack <|-- Pile
+Stack <|-- Stock
+Stack <|-- Waste
+Stack <|-- Foundation
+
+@enduml
+

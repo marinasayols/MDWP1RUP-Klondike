@@ -1,0 +1,24 @@
+@startuml
+title Move Pile To Pile
+
+state MovePileToPile {
+ 
+  state c1 <<choice>>
+  state c2 <<choice>>
+  state c3 <<choice>>
+
+  [*] --> c1 : Player requests to move Card
+  c1 --> CARD_SELECTED :  System shows selected Card
+  CARD_SELECTED --> c2 : Player requests to place Card
+  c2 --> [*] : [Destination Pile is empty and \nSelected Card Rank is NOT King]
+  c2 --> [*] : [Last Card in Destination Pile is \nSame Color than Selected Card]
+  c2 --> CARD_PLACED
+  CARD_PLACED --> c3 : System shows placed Card
+  c3 --> [*] : [Selected Card is last in Origin Pile \nOR New Last Card in Pile shows Value]
+  c3 --> CARD_UNCOVERED
+  CARD_UNCOVERED --> [*] : System shows last Card Rank in Origin Pile 
+
+  
+}
+
+@enduml

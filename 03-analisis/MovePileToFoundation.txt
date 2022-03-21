@@ -1,0 +1,55 @@
+@startuml
+allow_mixing
+skinparam handwritten true
+
+title Identificar Clases Obvias
+
+note "get()" as n1
+note "set()" as n2
+
+note "get()\nset()" as n3
+
+package views {
+	class FoundationView
+	class PileView
+	class CardView
+}
+
+package controllers {	
+	class "MovePileToFoundationController" as PToF
+}
+
+package models {
+	class Foundation
+	class Pile
+	class Card
+	enum Rank
+	enum Suit
+	enum Color
+}
+
+
+actor Player 
+Player .. n1
+n1 ..> PileView
+
+Player .. n2 
+n2 ..> FoundationView
+
+PileView ..> CardView
+FoundationView ..> CardView
+
+FoundationView -- n3 
+n3 --> PToF
+
+PToF *--> Pile : origin
+PToF *--> Foundation : destination
+
+Pile --> Card
+Foundation --> Card
+Card --> Suit
+Suit --> Color
+Card o--> Rank
+Foundation --> Color
+
+@enduml
