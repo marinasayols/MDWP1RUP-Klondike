@@ -1,55 +1,43 @@
 @startuml
 allow_mixing
-skinparam handwritten true
 
-title Identificar Clases Obvias
-
-note "get()" as n1
-note "set()" as n2
-
-note "get()\nset()" as n3
+title Move Pile To Foundation
 
 package views {
-	class FoundationView
-	class PileView
-	class CardView
+	class GameView
 }
 
 package controllers {	
 	class "MovePileToFoundationController" as PToF
+	class GameController
 }
 
 package models {
 	class Foundation
 	class Pile
-	class Card
-	enum Rank
-	enum Suit
-	enum Color
+	class Game
 }
 
 
 actor Player 
-Player .. n1
-n1 ..> PileView
+Player .> GameView
+note on link
+	set(Origin Pile)
+	set(Destination Foundation)
+end note
 
-Player .. n2 
-n2 ..> FoundationView
+GameView --> PToF
+note on link 
+	movePileToFoundation() : boolean
+end note
 
-PileView ..> CardView
-FoundationView ..> CardView
-
-FoundationView -- n3 
-n3 --> PToF
-
-PToF *--> Pile : origin
+PToF *-> Pile : origin
 PToF *--> Foundation : destination
 
-Pile --> Card
-Foundation --> Card
-Card --> Suit
-Suit --> Color
-Card o--> Rank
-Foundation --> Color
+GameView --> GameController
+note on link : isGameWon() : boolean
+
+GameController --> Game
 
 @enduml
+
