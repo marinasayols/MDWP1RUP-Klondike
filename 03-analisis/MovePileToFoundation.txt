@@ -16,6 +16,12 @@ package views {
 
 package controllers {	
 	class "MovePileToFoundationController" as controller1
+	class "MoveToFoundationController" as controller2
+	
+	note "moveToFoundation()" as n4
+	
+	controller1 -r-> n4
+	n4 -r-> controller2
 }
 
 package models {
@@ -40,7 +46,7 @@ GameView-- n2
 n2 --> controller1
 
 controller1*--> Pile: origin
-controller1*--> Foundation: destination
+controller2*--> Foundation: destination
 controller1 -- n3
 n3 --> Game
 
