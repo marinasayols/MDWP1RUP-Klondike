@@ -3,44 +3,51 @@ allow_mixing
 
 title Move Pile To Foundation
 
+note "movePileToFoundation()" as n1
+note "movePileToFoundation()\ngetGameVisibleInformation()\nisGameWon()" as n2
+note "getGameVisibleInformation()\nisGameWon()" as n3
+
 package views {
 	class GameView
+	class PileView
+  class FoundationView
+	class CardView
 }
 
 package controllers {	
-	class "MovePileToFoundationController" as PToF
-	class GameController
+	class "MovePileToFoundationController" as controller1
 }
 
 package models {
-	class Foundation
 	class Pile
-	class Game
+	class Foundation
+  class Card
+  class Game
+  class GameVisibleInformation
 }
 
-
 actor Player 
-Player .> GameView
-note on link
-	set(Origin Pile)
-	set(Destination Foundation)
-end note
+Player -- n1
+n1 --> GameView
 
-GameView --> PToF
-note on link 
-	movePileToFoundation() : boolean
-end note
+GameView..> FoundationView
+GameView..> PileView
 
-PToF *-> Pile : origin
-PToF *--> Foundation : destination
+FoundationView..> CardView
+PileView..> CardView
 
-GameView --> GameController
-note on link 
-	isGameWon() : boolean
-	refreshLayout()
-end note
+GameView-- n2 
+n2 --> controller1
 
-GameController --> Game
+controller1*--> Pile: origin
+controller1*--> Foundation: destination
+controller1 -- n3
+n3 --> Game
+
+Game *--> Pile
+Game *--> Foundation
+Game..> GameVisibleInformation
+Pile--> Card
+Foundation--> Card
 
 @enduml
-

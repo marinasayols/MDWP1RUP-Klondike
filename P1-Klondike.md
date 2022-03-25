@@ -8,7 +8,6 @@ Marina Sayols y Álvaro Tango
   + [Vocabulario del Klondike](#vocabulario-del-klondike)
   + [<span style="color:red">Estado inicial</span>](#estado-inicial)
   + [<span style="color:red">Estado final</span>](#estado-final)
-  + [<span style="color:red">Funcionamiento</span>](#funcionamiento)
   + [<span style="color:red">Movimiento de Pile a Foundation</span>](#movimiento-de-pile-a-foundation)
   + [Ciclo de Vida de una Carta](#ciclo-de-vida-de-una-carta)
 * [Requisitos](#requisitos)
@@ -28,8 +27,6 @@ Marina Sayols y Álvaro Tango
 ### Estado inicial
 
 ### Estado final
-
-### Funcionamiento
 
 ### Movimiento de Pile a Foundation
 
@@ -100,10 +97,6 @@ Marina Sayols y Álvaro Tango
 **MovePileToFoundation**
 
 !["MovePileToFoundation"](03-analisis/MovePileToFoundation.png "MovePileToFoundation")
-
-**MoveToFoundation**
-
-!["MoveToFoundation"](03-analisis/MoveToFoundation.png "MoveToFoundation")
 
 **MoveStockToWaste**
 

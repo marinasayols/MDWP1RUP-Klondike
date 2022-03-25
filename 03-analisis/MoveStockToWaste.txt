@@ -21,9 +21,9 @@ package controllers {
 package models {
 	class Stock
 	class Waste
-        class Card
-        class Game
-        class GameVisibleInformation
+  class Card
+  class Game
+  class GameVisibleInformation
 }
 
 actor Player 
