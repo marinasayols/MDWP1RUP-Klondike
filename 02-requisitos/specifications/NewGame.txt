@@ -1,11 +1,7 @@
 @startuml
 title Start Game
 
-state "." as s1
-state "." as s2
-state "." as s3
-
-state c1 <<choice>>
+state " " as s1
 
 [*] --> s1
 note on link
@@ -15,7 +11,10 @@ end note
 s1 --> [*]
 note on link 
 	System shows
-	 - Cards Displayed
+	 - Top Card Reverse in Stock
+	 - Empty Waste
+	 - All Foundations Empty
+	 - Piles (1 to 7 cards, only Top Card Rank visible)
 	 
 	System allows
 	 - MovePileToPile

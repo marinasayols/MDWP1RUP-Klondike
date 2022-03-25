@@ -6,19 +6,19 @@ Marina Sayols y Álvaro Tango
 
 * [Modelo del Dominio](#modelo-del-dominio)
   + [Vocabulario del Klondike](#vocabulario-del-klondike)
-  + [Estado inicial](#estado-inicial)
-  + [Estado final](#estado-final)
-  + [Funcionamiento](#funcionamiento)
-  + [Movimiento de Pile a Foundation](#movimiento-de-pile-a-foundation)
+  + [<span style="color:red">Estado inicial</span>](#estado-inicial)
+  + [<span style="color:red">Estado final</span>](#estado-final)
+  + [<span style="color:red">Funcionamiento</span>](#funcionamiento)
+  + [<span style="color:red">Movimiento de Pile a Foundation</span>](#movimiento-de-pile-a-foundation)
   + [Ciclo de Vida de una Carta](#ciclo-de-vida-de-una-carta)
 * [Requisitos](#requisitos)
   + [Actores y Casos de Uso](#actores-y-casos-de-uso)
   + [Contexto de Casos de Uso](#contexto-de-casos-de-uso)
-  + [Especificaciones](#especificaciones)
+  + [<span style="color:red">Especificaciones</span>](#especificaciones)
   + [Prototipado Interfaces](#prototipado-interfaces)
 * [Análisis](#an-lisis)
-  + [Análisis de Arquitectura](#an-lisis-de-arquitectura)
-  + [Análisis de Casos de Uso](#an-lisis-de-casos-de-uso)
+  + [<span style="color:red">Análisis de Arquitectura</span>](#an-lisis-de-arquitectura)
+  + [<span style="color:red">Análisis de Casos de Uso</span>](#an-lisis-de-casos-de-uso)
 
 ## Modelo del Dominio
 
@@ -47,7 +47,11 @@ Marina Sayols y Álvaro Tango
 ### Especificaciones
 **Login**
 
+!["Login"](02-requisitos/specifications/Login.png "Login")
+
 **NewGame**
+
+!["NewGame"](02-requisitos/specifications/NewGame.png "NewGame")
 
 **MovePileToFoundation**
 
@@ -73,6 +77,8 @@ Marina Sayols y Álvaro Tango
 ## Análisis
 
 ### Análisis de Arquitectura
+
+![Análisis de Arquitectura](03-analisis/general.png "Análisis de Arquitectura")
 
 ### Análisis de Casos de Uso
 **Login**
