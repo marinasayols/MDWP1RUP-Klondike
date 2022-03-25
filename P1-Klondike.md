@@ -15,6 +15,7 @@ Marina Sayols y Álvaro Tango
   + [Actores y Casos de Uso](#actores-y-casos-de-uso)
   + [Contexto de Casos de Uso](#contexto-de-casos-de-uso)
   + [Especificaciones](#especificaciones)
+  + [Prototipado Interfaces](#prototipado-interfaces)
 * [Análisis](#an-lisis)
   + [Análisis de Arquitectura](#an-lisis-de-arquitectura)
   + [Análisis de Casos de Uso](#an-lisis-de-casos-de-uso)
@@ -59,6 +60,15 @@ Marina Sayols y Álvaro Tango
 **MoveStockToWaste**
 
 !["MoveStockToWaste"](02-requisitos/specifications/MoveStockToWaste.png "MoveStockToWaste")
+
+### Prototipado Interfaces
+**LoginView**
+
+!["LoginView"](02-requisitos/interfaces/LoginView.png "LoginView")
+
+**GameView**
+
+!["GameView"](02-requisitos/interfaces/GameView.png "GameView")
 
 ## Análisis
 
