@@ -2,29 +2,43 @@
 title Start Game
 
 state " " as s1
+state " " as s2
+state " " as s3
+state " " as s4
 state c1 <<choice>>
+state c2 <<choice>>
 
 [*] --> c1
 note on link
 	Player requests
 	 - SaveGame
 end note
-s1 --> [*]
-note on link 
+
+c1 --> s1 : [there is a previous Saved Game]
+c1 --> s3 
+s1 --> c2
+note on link
 	System shows
-	 - Top Card Reverse in Stock
-	 - Empty Waste
-	 - All Foundations Empty
-	 - Piles (1 to 7 cards, only Top Card Rank visible)
+	 - Override Saved Game dialog
+end note
+
+c2 --> s4 : [Player cancels action]
+s4 --> [*]
+note on link
+	System shows
+	 - Save Cancelled message
+end note
+
+c2 --> s3 
+
+s3 --> [*]
+note on link
+	System shows
+	 - Save Successful Message
 	 
 	System allows
-	 - MovePileToPile
-	 - MoveFoundationToPile
-	 - MoveWasteToPile
-	 - MovePileToFoundation
-	 - MoveWasteToFoundation
-	 - MoveStockToWaste
-	 - MoveWasteToStock
+	 - All moves
+	 - SaveGame
 end note
 
 @enduml
