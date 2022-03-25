@@ -6,7 +6,7 @@ state " " as s1
 [*] --> s1
 note on link
 	Player requests
-	 - to Start Game
+	 - NewGame
 end note
 s1 --> [*]
 note on link 
