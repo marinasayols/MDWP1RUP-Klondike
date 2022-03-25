@@ -1,0 +1,56 @@
+@startuml
+allow_mixing
+
+title Move Stock to Waste
+
+note "moveStockToWaste()" as n1
+note "moveStockToWaste()" as n2
+note "isGameOver()\nget()" as n3
+note "isGameOver()\nget()" as n4
+
+package views {
+	class GameView
+	class StockView
+        class WasteView
+	class CardView
+}
+
+package controllers {	
+	class "MoveStockToWasteController" as controller1
+        class "GameController" as controller2
+}
+
+package models {
+	class Stock
+	class Waste
+        class Card
+        class Game
+}
+
+actor Player 
+Player -- n1
+n1 --> GameView
+
+GameView --> StockView
+
+GameView--> WasteView
+
+StockView--> CardView
+WasteView--> CardView
+
+GameView-- n2 
+n2 --> controller1
+
+GameView-- n3
+n3 --> controller2
+
+controller1*--> Stock: origin
+controller1*--> Waste: destination
+
+controller2-- n4
+n4 --> Game
+
+Stock--> Card
+Waste--> Card
+
+@enduml

@@ -1,0 +1,57 @@
+@startuml
+title Move Pile To Foundation
+
+	state " " as s1
+	state " " as s2
+	state " " as s3
+	state " " as s4
+	
+	state "UC:MoveToFoundation" as mtf
+ 
+  state c1 <<choice>>
+  state c2 <<choice>>
+
+	[*] --> s1
+  note on link 
+  	Player requests: 
+  	 - Move Card(s) From Origin Pile
+  end note
+  s1 --> s2 
+  note on link 
+  	System requires:
+  	 - Origin Pile
+  	 - # of Cards
+	end note
+	s2 --> c1
+	note on link
+		Player provides:
+		 - Origin Pile
+		 - # of Cards
+	end note
+	c1 --> s3 : [# of Cards > 1]
+	s3 --> [*]
+	note on link
+		System shows:
+		 - Error Only 1 Card
+		     To Foundation
+	end note
+	c1 --> mtf
+	note on link
+		System shows:
+		 - Selected Card
+		
+		System allows:
+		 - MoveToFoundation
+	end note
+	mtf --> c2
+	c2 --> [*]
+
+	c2 --> s4 : [Top Card Rank in Origin Pile \nis Hidden]
+	s4 --> [*]
+	note on link
+		System shows:
+		- Rank of Top Card 
+		   In Origin Pile
+	end note
+
+@enduml

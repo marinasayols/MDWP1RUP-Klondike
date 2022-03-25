@@ -22,7 +22,7 @@ note on link
 	Player provides
 	 - Destination Pile
 end note
-c1 --> s3 : [Destination Pile is empty and \nFirst Selected Card Rank is NOT King\nOR\nLast Card in Destination Pile is \nSame Color than First Selected Card]
+c1 --> s3 : [Destination Pile is empty and \nFirst Selected Card Rank is NOT King\nOR\nLast Card in Destination Pile is \nSame Color than First Selected Card\nOR\nFirst Selected Card Rank != \nLast Card Rank in Destination Pile +1]
 s3 --> [*] 
 note on link
 	System shows:

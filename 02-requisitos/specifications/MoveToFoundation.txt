@@ -35,9 +35,14 @@ note on link
 end note
 c2 --> [*]
 note on link
-	System allows: 
+	System allows:
+	 - MovePileToPile
+	 - MoveFoundationToPile
+	 - MoveWasteToPile
 	 - MovePileToFoundation
 	 - MoveWasteToFoundation
+	 - MoveStockToWaste
+	 - MoveWasteToStock
 end note
  
 c2 --> PLAYER_WON : [Goal Requirements are complete]

@@ -1,0 +1,35 @@
+@startuml
+title Move Stock to Waste
+
+state "." as s1
+state "." as s2
+state "." as s3
+
+state c1 <<choice>>
+state c2 <<choice>>
+
+[*] --> c1
+note on link
+	Player requests
+	 - move Card Stock To Waste
+end note
+c1 --> c2
+note on link
+	System shows
+	 - Card in Stock
+end note
+c1 --> s1 : [Stock is Empty]
+s1 --> [*]
+note on link
+	System shows
+	 - Error Empty Stock
+end note
+c2 --> [*]
+c2 --> s3 : [is Last Card in Stock]
+s3 --> [*]
+note on link
+	System shows
+	 - Empty Stock
+end note
+@enduml
+

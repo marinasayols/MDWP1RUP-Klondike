@@ -1,0 +1,35 @@
+@startuml
+title Context
+
+state c <<choice>>
+
+[*] --> INITIAL 
+INITIAL --> CLOSED_GAME : login\nsign in
+CLOSED_GAME -r-> OPENED_GAME : loadGame
+CLOSED_GAME -r-> OPENED_GAME : newGame
+
+OPENED_GAME --> c : player moves card
+c --> OPENED_GAME
+c --> CLOSED_GAME : [All Cards are in Foundations \nOR\nPlayer cannot make any move]
+
+OPENED_GAME -l-> CLOSED_GAME : closeGame
+
+CLOSED_GAME --> [*] : logout
+OPENED_GAME --> [*] : logout
+
+
+
+
+@enduml
+
+INITIAL_STATE --> GAME_STARTED : newGame \nloadGame
+GAME_STARTED -up-> GAME_STARTED : Player moves Card\nSaveGame
+GAME_STARTED --> PLAYER_WON : [All Cards are in Foundations]
+GAME_STARTED --> PLAYER_LOST : []
+GAME_STARTED --> GAME_FINISHED : closeGame
+
+PLAYER_WON --> GAME_FINISHED 
+PLAYER_LOST --> GAME_FINISHED
+GAME_FINISHED -up-> GAME_STARTED : newGame\nloadGame 
+GAME_FINISHED --> [*] : logout
+

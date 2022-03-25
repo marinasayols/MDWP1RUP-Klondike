@@ -25,7 +25,7 @@ package useCases {
 	p --> (Load Game)
 	p --> (Save Game)
 	p --> (Close Game)
-	p --> (Start Game)
+	p --> (New Game)
 	p --> (Logout)
 	p --> (Login)
 }
