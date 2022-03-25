@@ -4,9 +4,8 @@ allow_mixing
 title Move Stock to Waste
 
 note "moveStockToWaste()" as n1
-note "moveStockToWaste()" as n2
-note "isGameOver()\nget()" as n3
-note "isGameOver()\nget()" as n4
+note "moveStockToWaste()\ngetGameVisibleInformation()" as n2
+note "getGameVisibleInformation()" as n3
 
 package views {
 	class GameView
@@ -17,7 +16,6 @@ package views {
 
 package controllers {	
 	class "MoveStockToWasteController" as controller1
-        class "GameController" as controller2
 }
 
 package models {
@@ -25,31 +23,30 @@ package models {
 	class Waste
         class Card
         class Game
+        class GameVisibleInformation
 }
 
 actor Player 
 Player -- n1
 n1 --> GameView
 
-GameView --> StockView
+GameView..> StockView
+GameView..> WasteView
 
-GameView--> WasteView
-
-StockView--> CardView
-WasteView--> CardView
+StockView..> CardView
+WasteView..> CardView
 
 GameView-- n2 
 n2 --> controller1
 
-GameView-- n3
-n3 --> controller2
-
 controller1*--> Stock: origin
 controller1*--> Waste: destination
+controller1 -- n3
+n3 --> Game
 
-controller2-- n4
-n4 --> Game
-
+Game *--> Stock
+Game *--> Waste
+Game..> GameVisibleInformation
 Stock--> Card
 Waste--> Card
 

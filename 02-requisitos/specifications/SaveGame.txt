@@ -1,0 +1,31 @@
+@startuml
+title Start Game
+
+state " " as s1
+state c1 <<choice>>
+
+[*] --> c1
+note on link
+	Player requests
+	 - SaveGame
+end note
+s1 --> [*]
+note on link 
+	System shows
+	 - Top Card Reverse in Stock
+	 - Empty Waste
+	 - All Foundations Empty
+	 - Piles (1 to 7 cards, only Top Card Rank visible)
+	 
+	System allows
+	 - MovePileToPile
+	 - MoveFoundationToPile
+	 - MoveWasteToPile
+	 - MovePileToFoundation
+	 - MoveWasteToFoundation
+	 - MoveStockToWaste
+	 - MoveWasteToStock
+end note
+
+@enduml
+

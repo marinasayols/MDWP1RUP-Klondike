@@ -1,33 +1,28 @@
 @startuml
 
-title Identificar Clases Obvias
-
-namespace models {
-	class Game
-	class Player
-	class Foundation
-	class Tableau
-	class Pile
-	class Stock
-	class Waste
-	class Deck
-	class Card
-	enum Rank
-	enum Suit
-	enum Color
-}
-
-namespace views {
+package views {
 	class GameView
 	class FoundationView
 	class StockView
 	class WasteView
-	class TableauView
 	class PileView
 	class CardView
+	
+	class LoginView
+	class SigninView
+	
+	GameView ..> FoundationView
+	GameView ..> StockView
+	GameView ..> WasteView
+	GameView ..> PileView
+	
+	FoundationView ..> CardView
+	StockView ..> CardView
+	WasteView ..> CardView
+	PileView ..> CardView
 }
 
-namespace controllers {
+package controllers {
 	class StartGameController
 	class CloseGameController
 	class SaveGameController
@@ -44,7 +39,51 @@ namespace controllers {
 	
 	class MoveFoundationToPileController
 	
+	class MoveToPileController
+	class MoveToFoundationController
+	
 	class LoginController
 	class LogoutController
+	
+	MoveWasteToPileController ..> MoveToPileController
+	MovePileToPileController ..> MoveToPileController
+	MoveFoundationToPileController ..> MoveToPileController
+	
+	MovePileToFoundationController ..> MoveToFoundationController
+	MoveWasteToFoundationController ..> MoveToFoundationController
 }
+
+package models {
+	class Game
+	class Player
+	class Foundation
+	class Pile
+	class Stock
+	class Waste
+	class Card
+	class Stack
+	enum Rank
+	enum Suit
+	enum Color
+	
+	Game *--> "4" Foundation
+	Game *--> "7" Pile
+	Game *--> Stock
+	Game *--> Waste
+	
+	Stack <|-- Foundation
+	Stack <|-- Pile
+	Stack <|-- Stock
+	Stack <|-- Waste
+		
+	Stack --> Card
+	
+	Card --> Rank
+	Card --> Suit
+	Suit --> Color
+	Foundation --> Suit
+}
+
+views .d.> controllers
+controllers .d.> models
 @enduml

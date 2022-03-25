@@ -53,6 +53,10 @@ Marina Sayols y Álvaro Tango
 
 !["NewGame"](02-requisitos/specifications/NewGame.png "NewGame")
 
+**SaveGame**
+
+!["SaveGame"](02-requisitos/specifications/SaveGame.png "SaveGame")
+
 **MovePileToFoundation**
 
 !["MovePileToFoundation"](02-requisitos/specifications/MovePileToFoundation.png "MovePileToFoundation")
@@ -83,10 +87,24 @@ Marina Sayols y Álvaro Tango
 ### Análisis de Casos de Uso
 **Login**
 
+!["Login"](03-analisis/Login.png "Login")
+
 **NewGame**
+
+!["NewGame"](03-analisis/NewGame.png "NewGame")
+
+**SaveGame**
+
+!["SaveGame"](03-analisis/SaveGame.png "SaveGame")
 
 **MovePileToFoundation**
 
+!["MovePileToFoundation"](03-analisis/MovePileToFoundation.png "MovePileToFoundation")
+
 **MoveToFoundation**
 
+!["MoveToFoundation"](03-analisis/MoveToFoundation.png "MoveToFoundation")
+
 **MoveStockToWaste**
+
+!["MoveStockToWaste"](03-analisis/MoveStockToWaste.png "MoveStockToWaste")
