@@ -1,0 +1,35 @@
+@startuml
+allow_mixing
+
+title New Game
+
+note "newGame()" as n1
+note "newGame()" as n2
+note "newGame()\ngetGameVisibleInformation()" as n3
+
+package views {
+	class GameView
+}
+
+package controllers {	
+	class "NewGameController" as controller1
+}
+
+package models {
+	class Game
+  class GameVisibleInformation
+}
+
+actor Player 
+Player -- n1
+n1 --> GameView
+
+GameView -- n2 
+n2 --> controller1
+
+
+controller1 -- n3
+n3 --> Game
+Game..> GameVisibleInformation
+
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+allow_mixing
+
+title Save Game
+
+note "saveGame()" as n1
+note "saveGame()" as n2
+
+package views {
+	class GameView
+}
+
+package controllers {	
+	class "SaveGameController" as controller1
+}
+
+package models {
+	class Game
+}
+
+actor Player 
+Player -- n1
+n1 --> GameView
+
+GameView -- n2 
+n2 --> controller1
+
+controller1 --> Game
+
+@enduml

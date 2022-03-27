@@ -17,7 +17,7 @@ Marina Sayols y Álvaro Tango
   + [Prototipado Interfaces](#prototipado-interfaces)
 * [Análisis](#an-lisis)
   + [Análisis de Arquitectura](#an-lisis-de-arquitectura)
-  + [<span style="color:red">Análisis de Casos de Uso</span>](#an-lisis-de-casos-de-uso)
+  + [Análisis de Casos de Uso](#an-lisis-de-casos-de-uso)
 
 ## Modelo del Dominio
 

@@ -1,0 +1,39 @@
+@startuml
+allow_mixing
+
+title Login
+
+note "login()" as n1
+note "setUsername()\nsetPassword()" as n2
+note "setUsername()\nsetPassword()\nsetRepeatedPassword()" as n3
+
+package views {
+	class LoginView
+	class SigninView
+	
+	note "signin()" as n10
+	
+	LoginView -r-> n10
+	n10 -r-> SigninView
+}
+
+package controllers {	
+	class "LoginController" as controller1
+}
+
+namespace models {
+	class Player
+}
+
+actor Player 
+Player -- n1
+n1 --> LoginView
+
+LoginView -- n2 
+n2 --> controller1
+
+SigninView-- n3 
+n3 --> controller1
+
+controller1 ..> models.Player
+@enduml

@@ -23,7 +23,7 @@ package views {
 }
 
 package controllers {
-	class StartGameController
+	class NewGameController
 	class CloseGameController
 	class SaveGameController
 	class LoadGameController
