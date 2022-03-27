@@ -6,17 +6,17 @@ Marina Sayols y Álvaro Tango
 
 * [Modelo del Dominio](#modelo-del-dominio)
   + [Vocabulario del Klondike](#vocabulario-del-klondike)
-  + [<span style="color:red">Estado inicial</span>](#estado-inicial)
-  + [<span style="color:red">Estado final</span>](#estado-final)
-  + [<span style="color:red">Movimiento de Pile a Foundation</span>](#movimiento-de-pile-a-foundation)
+  + [Estado inicial](#estado-inicial)
+  + [Estado final](#estado-final)
+  + [Movimiento de Pile a Foundation](#movimiento-de-pile-a-foundation)
   + [Ciclo de Vida de una Carta](#ciclo-de-vida-de-una-carta)
 * [Requisitos](#requisitos)
   + [Actores y Casos de Uso](#actores-y-casos-de-uso)
   + [Contexto de Casos de Uso](#contexto-de-casos-de-uso)
-  + [<span style="color:red">Especificaciones</span>](#especificaciones)
+  + [Especificaciones](#especificaciones)
   + [Prototipado Interfaces](#prototipado-interfaces)
 * [Análisis](#an-lisis)
-  + [<span style="color:red">Análisis de Arquitectura</span>](#an-lisis-de-arquitectura)
+  + [Análisis de Arquitectura](#an-lisis-de-arquitectura)
   + [<span style="color:red">Análisis de Casos de Uso</span>](#an-lisis-de-casos-de-uso)
 
 ## Modelo del Dominio
@@ -25,10 +25,13 @@ Marina Sayols y Álvaro Tango
 ![Modelo del Dominio](01-DomainModel/DomainModel.png "Modelo del Dominio")
 
 ### Estado inicial
+![Estado inicial](01-DomainModel/estados/InitialState.png "Estado inicial")
 
 ### Estado final
+![Estado final](01-DomainModel/estados/FinalState.png "Estado final")
 
 ### Movimiento de Pile a Foundation
+![Movimiento de Pile a Foundation](01-DomainModel/secuencia/Diagrama-de-secuencia.png "Movimiento de Pile a Foundation")
 
 ### Ciclo de Vida de una Carta
 ![Ciclo de Vida de una Carta](01-DomainModel/CardLifeCycle.png "Ciclo de Vida de una Carta")

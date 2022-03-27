@@ -1,0 +1,50 @@
+@startuml
+allow_mixing
+
+title Final State
+
+object Game
+object Foundation
+object SpadesFoundation
+object DiamondsFoundation
+object HeartsFoundation
+object ClubsFoundation
+object Waste
+object Stock
+object Pile
+object SpadesAce
+object SpadesKing
+
+note "All cards with suit Spades\nand rank in interval (1,12)" as n1
+note "Same aggregations as SpadesFoundation\n but suit is the foundation's one" as n2
+
+Foundation <|-- SpadesFoundation
+Foundation <|-- DiamondsFoundation
+Foundation <|-- HeartsFoundation
+Foundation <|-- ClubsFoundation
+
+Game "1" *--> "1" Waste
+Game "1" *--> "1" Stock
+Game "1" *--> "4" Foundation
+Game "1" *--> "7" Pile
+
+SpadesFoundation : suit = "Spades"
+HeartsFoundation : suit = "Hearts"
+DiamondsFoundation : suit = "Diamonds"
+ClubsFoundation : suit = "Clubs"
+
+SpadesFoundation o-- SpadesAce
+SpadesFoundation o-- SpadesKing
+
+SpadesAce : suit = "Spades"
+SpadesAce : rank = 1
+SpadesKing : suit = "Spades"
+SpadesKing : rank = 12
+
+SpadesAce .. n1
+n1 .. SpadesKing 
+
+DiamondsFoundation .. n2
+HeartsFoundation .. n2
+ClubsFoundation .. n2
+@enduml

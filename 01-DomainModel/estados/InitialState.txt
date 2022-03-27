@@ -1,0 +1,41 @@
+@startuml
+allow_mixing
+
+title Initial State
+
+object Game
+object Foundation
+object SpadesFoundation
+object DiamondsFoundation
+object HeartsFoundation
+object ClubsFoundation
+object Waste
+object Stock
+object Pile
+object SomeCard
+object ACard
+object OtherCard
+
+Foundation <|-- SpadesFoundation
+Foundation <|-- DiamondsFoundation
+Foundation <|-- HeartsFoundation
+Foundation <|-- ClubsFoundation
+
+Game "1" *--> "1" Waste
+Game "1" *--> "1" Stock
+Game "1" *--> "4" Foundation
+Game "1" *--> "7" Pile
+
+SpadesFoundation : suit = "Spades"
+HeartsFoundation : suit = "Hearts"
+DiamondsFoundation : suit = "Diamonds"
+ClubsFoundation : suit = "Clubs"
+
+Stock "1" o-- "24" SomeCard
+Pile "1" o-- "0..6" OtherCard
+Pile "1" o-- "1" ACard
+
+SomeCard : faceUp = false
+OtherCard : faceUp = false
+ACard : faceUp = true
+@enduml
