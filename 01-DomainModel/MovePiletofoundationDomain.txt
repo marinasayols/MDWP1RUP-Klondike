@@ -1,0 +1,28 @@
+@startuml
+title Move Pile To Foundation
+
+  state " " as s1
+  state " " as s2
+  state " " as s3
+ 
+  state c1 <<choice>>
+
+  [*] --> s1
+  note on link 
+  	Player picks the top Card from the Origin Pile
+  end note
+  s1 --> s2 
+  note on link 
+  	Player places Card in the Destination Foundation
+  end note
+  s2 --> c1
+	
+  c1 --> s3 : [Origin Pile has no facing up cards]
+  s3 --> [*]
+  note on link
+Player turns the top
+Card from the Origin Pile
+so that it faces up
+  end note
+  c1 --> [*]
+@enduml

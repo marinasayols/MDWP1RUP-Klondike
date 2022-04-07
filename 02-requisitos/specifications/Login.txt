@@ -1,5 +1,5 @@
 @startuml
-title Start Game
+title Login
 
 state " " as s1
 state " " as s2

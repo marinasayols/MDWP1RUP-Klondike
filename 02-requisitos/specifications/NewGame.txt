@@ -1,5 +1,5 @@
 @startuml
-title Start Game
+title New Game
 
 state " " as s1
 

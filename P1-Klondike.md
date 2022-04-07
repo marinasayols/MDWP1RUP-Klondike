@@ -31,7 +31,7 @@ Marina Sayols y Álvaro Tango
 ![Estado final](01-DomainModel/estados/FinalState.png "Estado final")
 
 ### Movimiento de Pile a Foundation
-![Movimiento de Pile a Foundation](01-DomainModel/secuencia/Diagrama-de-secuencia.png "Movimiento de Pile a Foundation")
+![Movimiento de Pile a Foundation](01-DomainModel/MovePiletofoundationDomain.png "Movimiento de Pile a Foundation")
 
 ### Ciclo de Vida de una Carta
 ![Ciclo de Vida de una Carta](01-DomainModel/CardLifeCycle.png "Ciclo de Vida de una Carta")

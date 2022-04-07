@@ -1,8 +1,7 @@
 @startuml
-title Start Game
+title Save Game
 
 state " " as s1
-state " " as s2
 state " " as s3
 state " " as s4
 state c1 <<choice>>
