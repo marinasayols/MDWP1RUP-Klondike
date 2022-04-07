@@ -4,38 +4,65 @@ allow_mixing
 title Initial State
 
 object Game
-object Foundation
 object SpadesFoundation
 object DiamondsFoundation
 object HeartsFoundation
 object ClubsFoundation
 object Waste
 object Stock
-object Pile
-object SomeCard
-object ACard
-object OtherCard
+object Pile1
+object Pile7
+object Card1
+object Card2
+object Card3
+object Card4
+object Card5
 
-Foundation <|-- SpadesFoundation
-Foundation <|-- DiamondsFoundation
-Foundation <|-- HeartsFoundation
-Foundation <|-- ClubsFoundation
+note "Other 22 cards with faceUp = false,\nrandom suit and rank" as n1
+note "Other 5 cards with faceUp = false,\nrandom suit and rank" as n2
+note "5 more piles, each one with one more\nface down card than the previous one,\nand always just one face up card.\nSuit and rank always random" as n3
 
-Game "1" *--> "1" Waste
-Game "1" *--> "1" Stock
-Game "1" *--> "4" Foundation
-Game "1" *--> "7" Pile
+Game *--> Waste
+Game *--> Stock
+Game *--> SpadesFoundation
+Game *--> DiamondsFoundation
+Game *--> HeartsFoundation
+Game *--> ClubsFoundation
+Game *--> Pile1
+Game *--> Pile7
 
 SpadesFoundation : suit = "Spades"
 HeartsFoundation : suit = "Hearts"
 DiamondsFoundation : suit = "Diamonds"
 ClubsFoundation : suit = "Clubs"
 
-Stock "1" o-- "24" SomeCard
-Pile "1" o-- "0..6" OtherCard
-Pile "1" o-- "1" ACard
+Card1 : faceUp = false
+Card1 : suit = Random
+Card1 : rank = Random
+Card2 : faceUp = false
+Card2 : suit = Random
+Card2 : rank = Random
+Card3 : faceUp = true
+Card3 : suit = Random
+Card3 : rank = Random
+Card4 : faceUp = false
+Card4 : suit = Random
+Card4 : rank = Random
+Card5 : faceUp = true
+Card5 : suit = Random
+Card5 : rank = Random
 
-SomeCard : faceUp = false
-OtherCard : faceUp = false
-ACard : faceUp = true
+Stock o-- Card1
+Stock o-- Card2
+Pile1 o-- Card3
+Pile7 o-- Card4
+Pile7 o-- Card5
+
+Pile1 .. n3
+n3 .. Pile7
+
+Card1 .. n1
+n1 .. Card2
+Card4 .. n2
+n2 .. Card5
 @enduml

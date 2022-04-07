@@ -7,6 +7,9 @@ package views {
 	class WasteView
 	class PileView
 	class CardView
+
+	class GameClosedView
+	class SaveGameView
 	
 	class LoginView
 	class SigninView
@@ -55,6 +58,7 @@ package controllers {
 
 package models {
 	class Game
+	class GameVisibleInformation
 	class Player
 	class Foundation
 	class Pile
@@ -70,6 +74,7 @@ package models {
 	Game *--> "7" Pile
 	Game *--> Stock
 	Game *--> Waste
+	Game ..> GameVisibleInformation
 	
 	Stack <|-- Foundation
 	Stack <|-- Pile
